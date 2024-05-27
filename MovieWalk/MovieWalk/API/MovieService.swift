@@ -11,7 +11,8 @@ struct MovieService {
     static let shared = MovieService()
     
     func fetchMovieList(withSearch searchText: String, page: Int, completion: @escaping(([Movie]?, Error?) -> Void)) -> Void {
-        guard let url = URL(string: "https://www.omdbapi.com/?apikey=dc3a5e4b&s=\(searchText)&page=\(page)&type=movie") else { return }
+        guard let API_KEY = Environment.movieApiKey else { return }
+        guard let url = URL(string: "https://www.omdbapi.com/?apikey=\(API_KEY)&s=\(searchText)&page=\(page)&type=movie") else { return }
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         
@@ -38,7 +39,8 @@ struct MovieService {
     }
     
     func fetchMovieDetail(withId id: String, completion: @escaping((MovieDetail?, Error?) -> Void)) -> Void {
-        guard let url = URL(string: "https://www.omdbapi.com/?apikey=dc3a5e4b&i=\(id)") else { return }
+        guard let API_KEY = Environment.movieApiKey else { return }
+        guard let url = URL(string: "https://www.omdbapi.com/?apikey=\(API_KEY)&i=\(id)") else { return }
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         

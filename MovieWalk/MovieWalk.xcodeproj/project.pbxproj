@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		E71561822C04AAA200D59121 /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71561812C04AAA200D59121 /* CustomTextView.swift */; };
 		E71561842C04B67E00D59121 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71561832C04B67E00D59121 /* CustomLabel.swift */; };
+		E71561872C04CF4800D59121 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71561862C04CF4800D59121 /* Constant.swift */; };
 		E752D8BE2C045CAF0090C3B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E752D8BD2C045CAF0090C3B5 /* AppDelegate.swift */; };
 		E752D8C02C045CAF0090C3B5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E752D8BF2C045CAF0090C3B5 /* SceneDelegate.swift */; };
 		E752D8C22C045CAF0090C3B5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E752D8C12C045CAF0090C3B5 /* ViewController.swift */; };
@@ -32,6 +33,8 @@
 /* Begin PBXFileReference section */
 		E71561812C04AAA200D59121 /* CustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
 		E71561832C04B67E00D59121 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
+		E71561852C04CE8800D59121 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
+		E71561862C04CF4800D59121 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		E752D8BA2C045CAF0090C3B5 /* MovieWalk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieWalk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E752D8BD2C045CAF0090C3B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E752D8BF2C045CAF0090C3B5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +100,7 @@
 				E752D8C62C045CB00090C3B5 /* Assets.xcassets */,
 				E752D8C82C045CB00090C3B5 /* LaunchScreen.storyboard */,
 				E752D8CB2C045CB00090C3B5 /* Info.plist */,
+				E71561852C04CE8800D59121 /* Secrets.xcconfig */,
 			);
 			path = MovieWalk;
 			sourceTree = "<group>";
@@ -105,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				E752D8D72C045D280090C3B5 /* Extension.swift */,
+				E71561862C04CF4800D59121 /* Constant.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -236,6 +241,7 @@
 			files = (
 				E71561822C04AAA200D59121 /* CustomTextView.swift in Sources */,
 				E752D8DE2C0460470090C3B5 /* Movie.swift in Sources */,
+				E71561872C04CF4800D59121 /* Constant.swift in Sources */,
 				E752D8EE2C0497430090C3B5 /* MovieDetailController.swift in Sources */,
 				E752D8F22C0499B60090C3B5 /* MovieDetailResponse.swift in Sources */,
 				E752D8DA2C045D4F0090C3B5 /* MovieListController.swift in Sources */,
@@ -394,6 +400,7 @@
 		};
 		E752D8CF2C045CB00090C3B5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E71561852C04CE8800D59121 /* Secrets.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -422,6 +429,7 @@
 		};
 		E752D8D02C045CB00090C3B5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E71561852C04CE8800D59121 /* Secrets.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

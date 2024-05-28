@@ -64,7 +64,6 @@ class MovieDetailController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .black
-
         fetchMovieDetail()
         
     }
@@ -85,10 +84,16 @@ class MovieDetailController: UIViewController {
     
     func fetchMovieDetail() {
         showLoader(true)
-        MovieService.shared.fetchMovieDetail(withId: movieId) { movieDetail, error in
+        MovieService.shared.fetchMovieDetail(withId: movieId) { movieDetail, response, error in
             if let _ = error {
                 DispatchQueue.main.async {
                     self.showError("영화 정보를 불러오는데 실패했습니다.")
+                }
+                return
+            }
+            if response?.statusCode == 401 {
+                DispatchQueue.main.async {
+                    self.showError("일일 호출 횟수를 초과했습니다.")
                 }
                 return
             }

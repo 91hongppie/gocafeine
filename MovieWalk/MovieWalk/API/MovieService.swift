@@ -38,7 +38,7 @@ struct MovieService {
         }.resume()
     }
     
-    func fetchMovieDetail(withId id: String, completion: @escaping((MovieDetail?, Error?) -> Void)) -> Void {
+    func fetchMovieDetail(withId id: String, completion: @escaping((MovieDetail?, HTTPURLResponse?, Error?) -> Void)) -> Void {
         guard let API_KEY = Environment.movieApiKey else { return }
         guard let url = URL(string: "https://www.omdbapi.com/?apikey=\(API_KEY)&i=\(id)") else { return }
         var request = URLRequest(url: url)
@@ -46,11 +46,13 @@ struct MovieService {
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
-                completion(nil, error)
+                completion(nil, nil, error)
                 return
             }
+            if let response = response as? HTTPURLResponse {
+                completion(nil, response, nil)
+            }
             guard let data = data else { return }
-            
             guard let json = try? JSONDecoder().decode(MovieDetailResponse.self, from: data) else { return }
             var Ratings = ""
             var RottenTomatoes = ""
@@ -76,7 +78,7 @@ struct MovieService {
 
             let movieDetail = MovieDetail(dictionary: dictionary)
             
-            completion(movieDetail, nil)
+            completion(movieDetail, nil, nil)
         }.resume()
     }
 }
